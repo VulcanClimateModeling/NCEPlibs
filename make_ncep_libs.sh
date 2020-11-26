@@ -38,7 +38,7 @@ THIS_FILE=$(basename "$0" )
 #--------------------------------------------------------------
 # Define available options
 #--------------------------------------------------------------
-validsystems=( hera theia jet gaea cheyenne macosx linux )
+validsystems=( hera theia jet gaea cheyenne macosx linux daint )
 validcompilers=( intel pgi gnu )
 validopenmpflags=( 0 1 )
 validmpiflags=( 0 1 )
@@ -129,8 +129,8 @@ fi
 # Check that all libraries are available on this platform
 #--------------------------------------------------------------
 if [ "$APP" == "all" ]; then
-  if [ "${SYSTEM}" != "cheyenne" -a "${SYSTEM}" != "macosx" -a "${SYSTEM}" != "theia" -a "${SYSTEM}" != "hera" ]; then
-    echo "ERROR: Compile all option only supported for 'cheyenne', 'macosx', and 'hera' at this time"
+  if [ "${SYSTEM}" != "cheyenne" -a "${SYSTEM}" != "macosx" -a "${SYSTEM}" != "theia" -a "${SYSTEM}" != "hera" -a "${SYSTEM}" != "daint" ]; then
+    echo "ERROR: Compile all option only supported for 'cheyenne', 'macosx', 'hera', and 'daint' at this time"
     exit 1
   fi
 fi
